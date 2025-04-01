@@ -1,0 +1,326 @@
+/* This is a simplified and fixed version of your CSS */
+
+@font-face {
+    font-family: 'Futura';
+    src: url('futura.woff2') format('woff2');
+}
+
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f2; /* Off-white background */
+    font-family: 'Montserrat', 'Playfair Display', 'Futura', Arial, sans-serif;
+    color: #2f436f;
+    position: relative;
+    min-height: 100vh; /* Changed from height to min-height to allow scrolling on inner pages */
+    overflow-x: hidden; /* Only prevent horizontal scrolling */
+}
+
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0; /* Remove extra top spacing */
+}
+
+h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Logo */
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.logo-container:hover img {
+    animation: wiggle 0.8s ease;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Menu */
+.menu-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    font-size: larger;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    font-family: 'Futura', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #2f436f;
+    font-style: normal;
+    transition: font-style 0.3s ease;
+}
+
+.menu li a:hover {
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.footer-text {
+    font-family: 'Futura', sans-serif;
+    font-weight: 500;
+    color: #2f436f;
+    margin: 0;
+    font-size: larger;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Welcome text */
+.welcome-text {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-family: 'Futura', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #2f436f;
+    filter: url(#noise);
+    z-index: 100;
+}
+
+/* Content for all pages */
+.content {
+    padding: 100px 50px 100px; /* Reduced top padding */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Home page slideshow */
+.slideshow-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.slideshow {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Table styling */
+.table-container {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.events-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Futura', sans-serif;
+    font-weight: 400;
+    border: 1px solid #2f436f;
+}
+
+.events-table th, 
+.events-table td {
+    padding: 15px 25px;
+    text-align: left;
+    border-bottom: 1px solid rgba(47, 67, 111, 0.2);
+}
+
+.events-table th {
+    background-color: #2f436f;
+    color: white;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.events-table tr:last-child td {
+    border-bottom: none;
+}
+
+.events-table tr:hover td {
+    background-color: rgba(47, 67, 111, 0.05);
+}
+
+.events-table thead tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.events-table thead tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.events-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.events-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Join info styling - simplified */
+.join-info-container {
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: 'Futura', sans-serif;
+}
+
+.join-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.join-info-item {
+    background-color: rgba(47, 67, 111, 0.03);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(47, 67, 111, 0.1);
+}
+
+.join-info-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(47, 67, 111, 0.06);
+}
+
+.join-info-title {
+    color: #2f436f;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.join-info-content {
+    color: #333;
+    font-size: 1rem;
+}
+
+.join-connect {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.join-connect-item {
+    background-color: rgba(47, 67, 111, 0.06);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(47, 67, 111, 0.15);
+}
+
+.join-info-content a {
+    color: #2f436f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.join-info-content a:hover {
+    font-style: italic;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .join-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content {
+        padding: 80px 20px 80px;
+    }
+    
+    .menu {
+        gap: 15px;
+    }
+}

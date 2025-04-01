@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYMPHENRUNS</title>
+    <!-- Google Fonts für Montserrat und Playfair Display -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Verknüpfung zum externen Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="logo-container">
+        <a href="#" id="logo-link">
+            <!-- Ersetze diesen Platzhalter mit deinem tatsächlichen Logo-Pfad auf dem Server -->
+            <img src="MAT/Logo neu dark.png" alt="NYMPHENRUNS Logo">
+        </a>
+    </div>
+
+    <div class="menu-container">
+        <ul class="menu">
+            <li><a href="aboutus.html">about us</a></li>
+            <li><a href="upcomingevents.html">upcoming events</a></li>
+            <li><a href="joinus.html">run with us!</a></li>
+            <li><a href="social.html">socials</a></li>
+        </ul>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="MAT/Slideshow/IMG_0088.png" alt="NYMPHENRUNS Run Club 1">
+            </div>
+            <div class="slide">
+                <img src="MAT/Slideshow/IMG2.png" alt="NYMPHENRUNS Run Club 2">
+            </div>
+            <div class="slide">
+                <img src="MAT/Slideshow/IMG3.png" alt="NYMPHENRUNS Run Club 3">
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="welcome-text">welcome to nymphenruns,
+        <div>your go-to run club in munich!</div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-text">hit us up:</p>
+        <div class="social-icons">
+            <!-- Ersetze diese Platzhalter mit deinen tatsächlichen Logo-Dateien -->
+            <a href="https://chat.whatsapp.com/FX3rQvNJ5ybJTJREq7ZoNR?fbclid=PAZXh0bgNhZW0CMTEAAaZfyfiwQzppiaYHhP-qKLoeZR2VHHpIBkE2446aw4aD23NSGPvyg8GtgfA_aem_hNbJ3evqP0EZFtsiZmO2Jg" target="_blank">
+                <img src="MAT/logos/whatsapp.png" alt="WhatsApp" title="Contact us on WhatsApp">
+            </a>
+            <a href="https://instagram.com/nymphenruns" target="_blank">
+                <img src="MAT/logos/instalogo.png" alt="Instagram" title="Follow us on Instagram">
+            </a>
+            <a href="https://www.strava.com/clubs/nymphenruns?share_sig=9EDAE9AC1723571575&fbclid=PAZXh0bgNhZW0CMTEAAaZG2Em_j2LBprhYvy0L2rm6eL-h5V-oKsCgXbMR3mKydTojcOmZuQ9fUCI_aem_L7eB_G8GNNOEo9zb3VXoGw&_branch_match_id=1435560966190325193&_branch_referrer=H4sIAAAAAAAAAwXB3QqCMBgA0LfpzhSlHwMJHSLhspIy82ZsNZ3lnH0zxS569s4Rfd%2FpjWnqHuhA57Tr5k3dvsz0pN9oxNTGbFuye1M%2FvKNf5MJiVSKKq4X259D3aRHZoSRPGwcdiNswWdgGueTYEIvMULFGVc72qSPj6XFWz%2FtBFp%2BTW17QjlAuCV7xgETrKEkOoXK%2FzMlyFY2zH%2FCSA9RtRRioUXPwkAAl%2BR%2FjpnzvrQAAAA%3D%3D" target="_blank">
+                <img src="MAT/logos/strava.png" alt="Strava" title="Join us on Strava">
+            </a>
+        </div>
+    </div>
+    
+    <!-- SVG Filter für Grain-Effekt -->
+    <svg width="0" height="0" style="position: absolute;">
+        <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="1" stitchTiles="stitch"/>
+            <feDisplacementMap in="SourceGraphic" scale="1"/>
+        </filter>
+    </svg>
+
+    <script>
+        document.getElementById('logo-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Change slide every 4 seconds
+            setInterval(nextSlide, 4000);
+        });
+    </script>
+</body>
+</html>
